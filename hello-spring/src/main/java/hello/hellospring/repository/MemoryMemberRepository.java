@@ -22,6 +22,8 @@ public class MemoryMemberRepository implements MemberRepository{
 
     @Override
     public Optional<Member> findByName(String name) {
+        //반환값을 Optional 로 한번 감싸면 다양하게 변형 가능하다.
+        //null 일 가능성이 있다면 optional로 감싸서 반환하면 좋다.
         return store.values().stream()
                 .filter(member -> member.getName().equals(name))
                 .findAny();
